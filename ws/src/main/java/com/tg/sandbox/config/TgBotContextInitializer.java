@@ -22,6 +22,6 @@ public class TgBotContextInitializer {
 
   public void registerLongPollingUpdateConsumerBot(final LongPollingUpdateConsumer updateConsumer)
       throws Exception {
-    application.getContext().registerBot(properties.getToken(), updateConsumer);
+    application.getContext().registerBot(properties.getBot().getToken(), updateConsumer);
   }
 }

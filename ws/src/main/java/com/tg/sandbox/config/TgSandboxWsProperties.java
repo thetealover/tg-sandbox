@@ -6,6 +6,11 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Data
 @ConfigurationProperties(prefix = "ws")
 public class TgSandboxWsProperties {
-  private String username;
-  private String token;
+  private BotProperties bot;
+
+  @Data
+  public static class BotProperties {
+    private String username;
+    private String token;
+  }
 }

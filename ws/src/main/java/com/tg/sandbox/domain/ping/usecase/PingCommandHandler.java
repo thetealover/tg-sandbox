@@ -1,19 +1,18 @@
 package com.tg.sandbox.domain.ping.usecase;
 
+import static com.tg.sandbox.adapter.in.bot.common.BotCommandHandlerStrategyType.PING;
+import static java.time.format.DateTimeFormatter.ofPattern;
+
 import com.tg.sandbox.adapter.in.bot.common.BotCommandHandlerStrategy;
 import com.tg.sandbox.adapter.in.bot.common.BotCommandHandlerStrategyType;
 import io.vavr.control.Try;
+import java.time.LocalDateTime;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.generics.TelegramClient;
-
-import java.time.LocalDateTime;
-
-import static com.tg.sandbox.adapter.in.bot.common.BotCommandHandlerStrategyType.PING;
-import static java.time.format.DateTimeFormatter.ofPattern;
 
 @Slf4j
 @Service

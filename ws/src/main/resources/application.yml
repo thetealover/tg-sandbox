@@ -3,5 +3,6 @@ spring:
     name: tg-sandbox
 
 ws:
-  username: tgsandbox_bot
-  token: 7387886870:AAHdU3pAw-sFNV-ITbVywogl6MW-LOJ9Dw0
+  bot:
+    username: tgsandbox_bot
+    token: 7387886870:AAHdU3pAw-sFNV-ITbVywogl6MW-LOJ9Dw0

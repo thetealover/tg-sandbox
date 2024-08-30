@@ -13,6 +13,6 @@ public class TgConfiguration {
 
   @Bean
   public TelegramClient telegramClient() {
-    return new OkHttpTelegramClient(properties.getToken());
+    return new OkHttpTelegramClient(properties.getBot().getToken());
   }
 }
