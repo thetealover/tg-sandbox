@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+    id 'groovy'
+    id 'com.diffplug.spotless' version '6.23.3'
+    id 'org.springframework.boot' version '3.2.5'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = "${group}"
+
+java.toolchain.languageVersion = JavaLanguageVersion.of("${wsJavaVersion}")
+jar.enabled = false
+
+ext {
+    telegramBotsSpringBootStarterVersion = '6.9.7.1'
+    telegramBotsAbilitiesVersion = '7.7.1'
+    telegramBotsClientVersion = '7.7.1'
+
+    googleJavaFormatVersion = '1.19.1'
+    vavrVersion = '0.10.4'
+    lombokVersion = '1.18.34'
+
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation "org.telegram:telegrambots-spring-boot-starter:${telegramBotsSpringBootStarterVersion}"
+    implementation "org.telegram:telegrambots-abilities:${telegramBotsAbilitiesVersion}"
+    implementation "org.telegram:telegrambots-client:${telegramBotsClientVersion}"
+
+    implementation "io.vavr:vavr:${vavrVersion}"
+    implementation "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+}
+
+spotless.java {
+    googleJavaFormat(googleJavaFormatVersion).style('GOOGLE')
+}
