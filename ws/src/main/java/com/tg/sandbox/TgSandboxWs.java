@@ -4,7 +4,6 @@ import com.tg.sandbox.config.TgSandboxWsProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.telegram.telegrambots.longpolling.TelegramBotsLongPollingApplication;
 
 @SpringBootApplication
 @EnableConfigurationProperties(TgSandboxWsProperties.class)
