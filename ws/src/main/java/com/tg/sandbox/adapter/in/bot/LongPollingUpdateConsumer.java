@@ -27,7 +27,7 @@ public class LongPollingUpdateConsumer implements LongPollingSingleThreadUpdateC
       if (isTypeOfCommand(messageText)) {
         final BotCommandHandlerStrategyType type =
             Try.of(() -> fromValue(messageText))
-                .onFailure(throwable -> unsupportedCommandHandler.handle(update))
+                .onFailure(__ -> unsupportedCommandHandler.handle(update))
                 .get();
 
         commandHandlerStrategyResolver.resolveAndHandle(type, update);

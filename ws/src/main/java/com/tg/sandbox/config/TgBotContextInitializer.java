@@ -1,5 +1,6 @@
 package com.tg.sandbox.config;
 
+import io.vavr.control.Try;
 import jakarta.annotation.PostConstruct;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -14,14 +15,14 @@ public class TgBotContextInitializer {
   private final TgSandboxWsProperties properties;
 
   @PostConstruct
-  public void init() throws Exception {
+  public void init() {
     for (final LongPollingUpdateConsumer consumer : updateConsumers) {
       registerLongPollingUpdateConsumerBot(consumer);
     }
   }
 
-  public void registerLongPollingUpdateConsumerBot(final LongPollingUpdateConsumer updateConsumer)
-      throws Exception {
-    application.getContext().registerBot(properties.getBot().getToken(), updateConsumer);
+  public void registerLongPollingUpdateConsumerBot(final LongPollingUpdateConsumer updateConsumer) {
+    Try.run(
+        () -> application.getContext().registerBot(properties.getBot().getToken(), updateConsumer));
   }
 }

@@ -1,5 +1,6 @@
 package com.tg.sandbox.config;
 
+import io.vavr.control.Try;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import lombok.Getter;
@@ -17,7 +18,7 @@ public class TgBotsLongPollingApplication {
   }
 
   @PreDestroy
-  public void destroy() throws Exception {
-    this.context.close();
+  public void destroy() {
+    Try.run(() -> this.context.close());
   }
 }

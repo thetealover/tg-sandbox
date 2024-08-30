@@ -22,8 +22,8 @@ public class UnsupportedCommandHandler {
             .text(UNSUPPORTED_COMMAND_RESPONSE)
             .build();
 
-    Try.of(() -> telegramClient.execute(sendMessage))
-        .onFailure(throwable -> log.error("Failed to send Telegram message"));
+    Try.run(() -> telegramClient.execute(sendMessage))
+        .onFailure(__ -> log.error("Failed to send Telegram message"));
 
     log.info(
         "Handled unsupported command request. user={}",

@@ -34,7 +34,7 @@ public class PingCommandHandler implements BotCommandHandlerStrategy {
         SendMessage.builder().chatId(update.getMessage().getChatId()).text(response).build();
 
     Try.of(() -> telegramClient.execute(sendMessage))
-        .onFailure(throwable -> log.error("Failed to send Telegram message"));
+        .onFailure(__ -> log.error("Failed to send Telegram message"));
 
     log.info("Handled ping command request. user={}", update.getMessage().getFrom().getUserName());
   }
