@@ -1,10 +1,10 @@
 package com.tg.sandbox.adapter.in.bot;
 
-import static com.tg.sandbox.adapter.in.bot.common.BotCommandHandlerStrategyType.fromValue;
+import static com.tg.sandbox.adapter.in.bot.common.commandhandlerstrategy.BotCommandHandlerStrategyType.fromValue;
 
-import com.tg.sandbox.adapter.in.bot.common.BotCommandHandlerStrategyResolver;
-import com.tg.sandbox.adapter.in.bot.common.BotCommandHandlerStrategyType;
 import com.tg.sandbox.adapter.in.bot.common.UnsupportedCommandHandler;
+import com.tg.sandbox.adapter.in.bot.common.commandhandlerstrategy.BotCommandHandlerStrategyResolver;
+import com.tg.sandbox.adapter.in.bot.common.commandhandlerstrategy.BotCommandHandlerStrategyType;
 import io.vavr.control.Try;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

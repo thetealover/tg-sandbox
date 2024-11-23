@@ -1,4 +1,4 @@
-package com.tg.sandbox.adapter.in.bot.common;
+package com.tg.sandbox.adapter.in.bot.common.commandhandlerstrategy;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

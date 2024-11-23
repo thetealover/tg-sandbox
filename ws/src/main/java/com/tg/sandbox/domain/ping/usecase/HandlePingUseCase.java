@@ -1,10 +1,10 @@
 package com.tg.sandbox.domain.ping.usecase;
 
-import static com.tg.sandbox.adapter.in.bot.common.BotCommandHandlerStrategyType.PING;
+import static com.tg.sandbox.adapter.in.bot.common.commandhandlerstrategy.BotCommandHandlerStrategyType.PING;
 import static java.time.format.DateTimeFormatter.ofPattern;
 
-import com.tg.sandbox.adapter.in.bot.common.BotCommandHandlerStrategy;
-import com.tg.sandbox.adapter.in.bot.common.BotCommandHandlerStrategyType;
+import com.tg.sandbox.adapter.in.bot.common.commandhandlerstrategy.BotCommandHandlerStrategy;
+import com.tg.sandbox.adapter.in.bot.common.commandhandlerstrategy.BotCommandHandlerStrategyType;
 import io.vavr.control.Try;
 import java.time.LocalDateTime;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +17,7 @@ import org.telegram.telegrambots.meta.generics.TelegramClient;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class PingCommandHandler implements BotCommandHandlerStrategy {
+public class HandlePingUseCase implements BotCommandHandlerStrategy {
   private final TelegramClient telegramClient;
 
   @Override
@@ -28,7 +28,7 @@ public class PingCommandHandler implements BotCommandHandlerStrategy {
   @Override
   public void handle(final Update update) {
     final String response =
-        "📢 ping %s".formatted(LocalDateTime.now().format(ofPattern("dd/MM/yyyy hh:mm:ss a")));
+        "📢 ping \n⏱️ %s".formatted(LocalDateTime.now().format(ofPattern("dd/MM/yyyy hh:mm:ss a")));
 
     final SendMessage sendMessage =
         SendMessage.builder().chatId(update.getMessage().getChatId()).text(response).build();

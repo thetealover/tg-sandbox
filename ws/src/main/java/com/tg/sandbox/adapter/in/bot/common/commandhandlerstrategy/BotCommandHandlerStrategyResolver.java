@@ -1,4 +1,4 @@
-package com.tg.sandbox.adapter.in.bot.common;
+package com.tg.sandbox.adapter.in.bot.common.commandhandlerstrategy;
 
 import static java.util.function.Function.identity;
 import static java.util.stream.Collectors.toMap;
