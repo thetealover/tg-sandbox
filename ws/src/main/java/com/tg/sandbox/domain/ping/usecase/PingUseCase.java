@@ -1,10 +1,10 @@
 package com.tg.sandbox.domain.ping.usecase;
 
-import static com.tg.sandbox.adapter.in.bot.common.commandhandlerstrategy.BotCommandHandlerStrategyType.PING;
+import static com.tg.sandbox.adapter.in.bot.common.rusecasestrategy.BotUseCaseStrategyType.PING;
 import static java.time.format.DateTimeFormatter.ofPattern;
 
-import com.tg.sandbox.adapter.in.bot.common.commandhandlerstrategy.BotCommandHandlerStrategy;
-import com.tg.sandbox.adapter.in.bot.common.commandhandlerstrategy.BotCommandHandlerStrategyType;
+import com.tg.sandbox.adapter.in.bot.common.rusecasestrategy.BotUseCaseStrategy;
+import com.tg.sandbox.adapter.in.bot.common.rusecasestrategy.BotUseCaseStrategyType;
 import io.vavr.control.Try;
 import java.time.LocalDateTime;
 import lombok.RequiredArgsConstructor;
@@ -17,11 +17,11 @@ import org.telegram.telegrambots.meta.generics.TelegramClient;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class HandlePingUseCase implements BotCommandHandlerStrategy {
+public class PingUseCase implements BotUseCaseStrategy {
   private final TelegramClient telegramClient;
 
   @Override
-  public BotCommandHandlerStrategyType getType() {
+  public BotUseCaseStrategyType getType() {
     return PING;
   }
 
@@ -36,6 +36,6 @@ public class HandlePingUseCase implements BotCommandHandlerStrategy {
     Try.of(() -> telegramClient.execute(sendMessage))
         .onFailure(__ -> log.error("Failed to send Telegram message"));
 
-    log.info("Handled ping command request. user={}", update.getMessage().getFrom().getUserName());
+    log.info("Handled ping command update. user={}", update.getMessage().getFrom().getUserName());
   }
 }

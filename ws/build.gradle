@@ -14,8 +14,8 @@ jar.enabled = false
 
 ext {
     telegramBotsSpringBootStarterVersion = '6.9.7.1'
-    telegramBotsAbilitiesVersion = '7.7.1'
-    telegramBotsClientVersion = '7.7.1'
+    telegramBotsAbilitiesVersion = '8.3.0'
+    telegramBotsClientVersion = '8.3.0'
 
     googleJavaFormatVersion = '1.19.1'
     vavrVersion = '0.10.4'

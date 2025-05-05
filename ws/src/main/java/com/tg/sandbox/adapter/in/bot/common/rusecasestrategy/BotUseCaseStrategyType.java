@@ -1,18 +1,19 @@
-package com.tg.sandbox.adapter.in.bot.common.commandhandlerstrategy;
+package com.tg.sandbox.adapter.in.bot.common.rusecasestrategy;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public enum BotCommandHandlerStrategyType {
+public enum BotUseCaseStrategyType {
   PING("/ping"),
+  TALK("/talk"),
   ;
 
   private final String value;
 
-  public static BotCommandHandlerStrategyType fromValue(final String value) {
-    for (final BotCommandHandlerStrategyType type : BotCommandHandlerStrategyType.values()) {
+  public static BotUseCaseStrategyType fromValue(final String value) {
+    for (final BotUseCaseStrategyType type : BotUseCaseStrategyType.values()) {
       if (type.getValue().equals(value)) {
         return type;
       }
