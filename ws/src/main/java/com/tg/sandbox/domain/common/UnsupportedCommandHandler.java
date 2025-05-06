@@ -1,4 +1,4 @@
-package com.tg.sandbox.adapter.in.bot.common;
+package com.tg.sandbox.domain.common;
 
 import io.vavr.control.Try;
 import lombok.RequiredArgsConstructor;
@@ -26,7 +26,7 @@ public class UnsupportedCommandHandler {
         .onFailure(__ -> log.error("Failed to send Telegram message"));
 
     log.info(
-        "Handled unsupported command request. user={}",
+        "Handled unsupported command request. username={}",
         update.getMessage().getFrom().getUserName());
   }
 }
