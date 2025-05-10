@@ -32,7 +32,7 @@ public class TalkReplyAdviceUseCase implements CallbackUseCaseStrategy {
                         .chatId(update.getCallbackQuery().getMessage().getChatId())
                         .text("Drink water, Boss! 🐥💧")
                         .build()))
-        .onFailure(__ -> log.error("Failed to send Telegram message"));
+        .onFailure(ex -> log.error("Failed to send Telegram message. Reason: {}", ex.getMessage()));
 
     log.info(
         "Handled /talk/advice reply callback. username={}",

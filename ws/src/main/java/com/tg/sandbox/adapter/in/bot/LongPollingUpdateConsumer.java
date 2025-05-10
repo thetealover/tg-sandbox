@@ -39,7 +39,7 @@ public class LongPollingUpdateConsumer implements LongPollingSingleThreadUpdateC
     }
   }
 
-  private void handleCallback(Update update) {
+  private void handleCallback(final Update update) {
     final CallbackUseCaseStrategyType callbackType =
         Try.of(() -> CallbackUseCaseStrategyType.fromValue(update.getCallbackQuery().getData()))
             .onFailure(__ -> unsupportedCommandHandler.handle(update))

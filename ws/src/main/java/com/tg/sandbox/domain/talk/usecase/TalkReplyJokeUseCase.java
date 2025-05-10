@@ -33,7 +33,7 @@ public class TalkReplyJokeUseCase implements CallbackUseCaseStrategy {
                         .text(
                             "Why don't blind people skydive?\nIt scares the shit out of their dogs 🐶")
                         .build()))
-        .onFailure(__ -> log.error("Failed to send Telegram message"));
+        .onFailure(ex -> log.error("Failed to send Telegram message. Reason: {}", ex.getMessage()));
 
     log.info(
         "Handled /talk/joke reply callback. username={}",

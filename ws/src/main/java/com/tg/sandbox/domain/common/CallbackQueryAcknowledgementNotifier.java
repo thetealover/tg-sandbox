@@ -22,6 +22,9 @@ public class CallbackQueryAcknowledgementNotifier {
                         .text("Got it, Boss!")
                         .showAlert(false)
                         .build()))
-        .onFailure(__ -> log.error("Failed to send Telegram message"));
+        .onFailure(
+            ex ->
+                log.error(
+                    "Failed to send Telegram answer callback query. Reason: {}", ex.getMessage()));
   }
 }

@@ -48,7 +48,7 @@ public class StartCommandHandler implements CommandUseCaseStrategy {
                         .text("Salute, Boss! 🫡\nI'm at your service!")
                         .replyMarkup(keyboard)
                         .build()))
-        .onFailure(__ -> log.error("Failed to send Telegram message"));
+        .onFailure(ex -> log.error("Failed to send Telegram message. Reason: {}", ex.getMessage()));
 
     log.info(
         "Handled /start command update. username={}", update.getMessage().getFrom().getUserName());

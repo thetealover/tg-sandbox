@@ -52,7 +52,7 @@ public class TalkUseCase implements CommandUseCaseStrategy {
             .build();
 
     Try.of(() -> telegramClient.execute(message))
-        .onFailure(__ -> log.error("Failed to send Telegram message"));
+        .onFailure(ex -> log.error("Failed to send Telegram message. Reason: {}", ex.getMessage()));
 
     log.info(
         "Handled /talk command update. username={}", update.getMessage().getFrom().getUserName());

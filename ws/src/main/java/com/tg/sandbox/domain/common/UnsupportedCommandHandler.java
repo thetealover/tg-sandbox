@@ -23,7 +23,7 @@ public class UnsupportedCommandHandler {
             .build();
 
     Try.run(() -> telegramClient.execute(sendMessage))
-        .onFailure(__ -> log.error("Failed to send Telegram message"));
+        .onFailure(ex -> log.error("Failed to send Telegram message. Reason: {}", ex.getMessage()));
 
     log.info(
         "Handled unsupported command request. username={}",
